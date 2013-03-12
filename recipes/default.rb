@@ -51,6 +51,11 @@ end
 
 rvm_ruby node['rails-lastmile']['ruby_version']
 
+rvm_gem "bundler" do
+  ruby_string node['rails-lastmile']['ruby_version']
+  action      :install
+end
+
 rvm_shell "run-rails" do
   ruby_string node['rails-lastmile']['ruby_version']
   cwd app_dir
