@@ -14,6 +14,7 @@ end
 app_dir = node['rails-lastmile']['app_dir']
 listen = node['rails-lastmile']['listen']
 worker_processes = node['rails-lastmile']['worker_processes']
+bundle_args = node['rails-lastmile']['bundle_args']
 include_recipe "rails-lastmile::setup"
 
 include_recipe "unicorn"
@@ -61,14 +62,14 @@ rvm_shell "run-rails" do
   cwd app_dir
   if node['rails-lastmile']['reset_db']
     code <<-EOT1
-      bundle install
+      bundle install #{node['rails-lastmile']['bundle_args']}
       bundle exec rake db:drop
       bundle exec rake db:setup
       ps -p `cat /var/run/unicorn/master.pid` &>/dev/null || bundle exec unicorn_rails -c /etc/unicorn.cfg -D --env #{node['rails-lastmile']['environment']}
     EOT1
   else
     code <<-EOT2
-      bundle install
+      bundle install #{node['rails-lastmile']['bundle_args']}
       bundle exec rake db:migrate
       ps -p `cat /var/run/unicorn/master.pid` &>/dev/null || bundle exec unicorn_rails -c /etc/unicorn.cfg -D --env #{node['rails-lastmile']['environment']}
     EOT2
