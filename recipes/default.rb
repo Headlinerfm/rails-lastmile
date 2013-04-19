@@ -47,7 +47,8 @@ template "/etc/unicorn.cfg" do
   source "unicorn.erb"
   variables(:app_dir => app_dir,
             :worker_processes=>worker_processes,
-            :listen=>listen)
+            :listen=>listen,
+            :pid_file=>pid_file)
 end
 
 rvm_ruby node['rails-lastmile']['ruby_version']
