@@ -6,3 +6,4 @@ default['rails-lastmile']['worker_processes'] = 2
 default['rails-lastmile']['reset_db'] = false
 default['rails-lastmile']['bundle_args'] = ''
 default['rails-lastmile']['environment'] = 'development'
+default['rails-lastmile']['pid_file'] = "/var/run/unicorn/master.pid"

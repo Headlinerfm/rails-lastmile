@@ -16,7 +16,7 @@ listen = node['rails-lastmile']['listen']
 worker_processes = node['rails-lastmile']['worker_processes']
 bundle_args = node['rails-lastmile']['bundle_args']
 include_recipe "rails-lastmile::setup"
-
+pid_file = node['rails-lastmile']['pid_file']
 include_recipe "unicorn"
 
 directory "/var/run/unicorn" do
