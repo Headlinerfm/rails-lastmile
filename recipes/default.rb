@@ -6,10 +6,6 @@
 #
 # See license.txt for details
 #
-class Chef::Recipe
-    # mix in recipe helpers
-    include Chef::RubyBuild::RecipeHelpers
-end
 
 app_dir = node['rails-lastmile']['app_dir']
 listen = node['rails-lastmile']['listen']
