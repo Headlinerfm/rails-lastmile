@@ -14,4 +14,3 @@ include_recipe "rvm::system"
 include_recipe "rvm::vagrant"
 
 rvm_ruby node['rails-lastmile']['ruby_version']
-rvm_gem "bundler"
