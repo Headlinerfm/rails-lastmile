@@ -38,12 +38,8 @@ Next setup your Cheffile (think Gemfile) with the following recipes
 ```ruby
 cookbook 'build-essential'
 
-cookbook 'ruby_build',
-  :git => 'git://github.com/fnichol/chef-ruby_build.git', :ref => 'v0.6.2'
-cookbook 'rbenv',
-  :git => 'https://github.com/fnichol/chef-rbenv', :ref => '7d9b66f20d6edb786720b22919fd53e698fce12b'
-cookbook 'apt',
-  :git => 'https://github.com/opscode-cookbooks/apt'
+cookbook 'rvm', git: 'git@github.com:fnichol/chef-rvm.git'
+cookbook 'apt', :git => 'https://github.com/opscode-cookbooks/apt'
 cookbook 'unicorn'
 cookbook  'nginx'
 cookbook  'runit'
